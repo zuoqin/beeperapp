@@ -37,7 +37,7 @@ type State = UIExplorerNavigationState & {
   externalModule: ?string,
 };
 
-class T5PHRMS extends React.Component {
+class BeeperApp extends React.Component {
   _handleAction: Function;
   _renderDrawerContent: Function;
   state: State;
@@ -182,7 +182,7 @@ class T5PHRMS extends React.Component {
       },
       body: body,
     };      
-    fetch("http://192.168.123.33:3000/token", settings)
+    fetch("http://10.10.246.196:3000/token", settings)
       .then((response) => response.json())
       .then((responseData) => {
         this.setLoginUser(responseData);
@@ -208,7 +208,7 @@ class T5PHRMS extends React.Component {
           onModuleExit={() => {
             this._handleAction({ type: 'BackAction' });
           }}
-          ref={(t5pmodule) => { this._moduleRef = t5pmodule; }}
+          ref={(themodule) => { this._moduleRef = themodule; }}
         />
       );
     }
@@ -217,7 +217,7 @@ class T5PHRMS extends React.Component {
     
     if (stack && stack.routes[index]) {
       const {key, passProps} = stack.routes[index];
-      const T5PModule = UIExplorerList.Modules[key];
+      const theModule = UIExplorerList.Modules[key];
       return (
         <View style={styles.container}>
           <ToolbarAndroid
@@ -228,9 +228,9 @@ class T5PHRMS extends React.Component {
             title={title}
           />
           <UIExplorerModuleContainer
-            module={T5PModule}
+            module={theModule}
             passProps = {passProps}
-            ref={(t5pmodule) => { this._moduleRef = t5pmodule; }}
+            ref={(themodule) => { this._moduleRef = themodule; }}
           />
         </View>
       );
@@ -333,4 +333,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('T5PHRMS', () => T5PHRMS);
+AppRegistry.registerComponent('BeeperApp', () => BeeperApp);

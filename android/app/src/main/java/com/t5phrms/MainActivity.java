@@ -1,4 +1,4 @@
-package com.t5phrms;
+package com.beeperapp;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "T5PHRMS";
+        return "BeeperApp";
     }
 }

@@ -105,12 +105,12 @@ const UIExplorerStackReducer = StackReducer({
   getPushedReducerForAction: (action, lastState) => {
     if (action.type === 'UIExplorerModuleAction' && 
       UIExplorerList.Modules !== undefined &&
-      UIExplorerList.Modules[action.t5pModule]) {
-      if (lastState.routes.find(route => route.key === action.t5pModule)) {
+      UIExplorerList.Modules[action.theModule]) {
+      if (lastState.routes.find(route => route.key === action.theModule)) {
         // The example is already open, we should avoid pushing examples twice
         return null;
       }
-      return (state) => state || {key: action.t5pModule, passProps: action.passProps};
+      return (state) => state || {key: action.theModule, passProps: action.passProps};
     }
     return null;
   },
@@ -153,11 +153,11 @@ function UIExplorerNavigationReducer(lastState: ?UIExplorerNavigationState, acti
     };
   }
   if (action.type === 'UIExplorerModuleAction' && UIExplorerList.Modules !== undefined) {
-    const t5pModule = UIExplorerList.Modules[action.t5pModule];
-    if (t5pModule && t5pModule.external) {
+    const theModule = UIExplorerList.Modules[action.theModule];
+    if (theModule && theModule.external) {
       return {
         ...lastState,
-        externalModule: action.t5pModule,
+        externalModule: action.theModule,
       };
     }
   }

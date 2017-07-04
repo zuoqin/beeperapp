@@ -276,7 +276,7 @@ class UIExplorerModulesList extends React.Component {
           'authorization': bearer,
         },      
       };      
-      fetch("http://192.168.123.33:3000/api/sysmenu", settings)
+      fetch("http://10.10.246.196:3000/api/sysmenu", settings)
         .then((response) => response.json())
         .then((responseData) => {
             this.setPageGetResult(responseData);

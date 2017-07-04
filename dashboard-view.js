@@ -24,9 +24,9 @@ import {
 
 var styles1 = require('./styles');
 
-var SYSMENU_URL = 'http://192.168.123.33:3000/api/sysmenu';
-var PAGE_URL = 'http://192.168.123.33:3000//api/page/';
-var STORY_URL = 'http://192.168.123.33:3000//api/story/';
+var SYSMENU_URL = 'http://10.10.246.196:3000/api/sysmenu';
+var PAGE_URL = 'http://10.10.246.196:3000//api/page/';
+var STORY_URL = 'http://10.10.246.196:3000//api/story/';
 
 
 var LOADING = {};

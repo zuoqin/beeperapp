@@ -29,7 +29,7 @@ export type UIExplorerListWithFilterAction = {
 
 export type UIExplorerModuleAction = {
   type: 'UIExplorerModuleAction',
-  t5pModule: string,
+  theModule: string,
   onNavigate: Function;
 };
 
@@ -42,10 +42,10 @@ function ModuleListWithFilter(filter: ?string): UIExplorerListWithFilterAction {
   };
 }
 
-function ModuleAction(t5pModule: string, passProps): UIExplorerModuleAction {
+function ModuleAction(theModule: string, passProps): UIExplorerModuleAction {
   return {
     type: 'UIExplorerModuleAction',
-    t5pModule,
+    theModule,
     passProps,
   };
 }

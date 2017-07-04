@@ -1,4 +1,4 @@
-package com.t5phrms;
+package com.beeperapp;
 
 import android.app.Application;
 import android.util.Log;
