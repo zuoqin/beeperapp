@@ -182,7 +182,7 @@ class BeeperApp extends React.Component {
       },
       body: body,
     };      
-    fetch("http://10.10.246.196:3000/token", settings)
+    fetch("http://10.10.246.131:3000/token", settings)
       .then((response) => response.json())
       .then((responseData) => {
         this.setLoginUser(responseData);
