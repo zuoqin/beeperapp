@@ -18,21 +18,21 @@
  * AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * @providesModule BeeperModuleTypes
+ * @providesModule T5PModuleTypes
  * @flow
  */
 'use strict';
 
-export type BeeperModuleSpec = {
+export type TheModuleSpec = {
   title: string,
   render: () => ?ReactElement<any>,
   description?: string,
   platform?: string;
 };
 
-export type theModule = {
+export type TheModule = {
   title: string;
   description: string;
-  themodules: Array<BeeperModuleSpec>;
+  t5pmodules: Array<TheModuleSpec>;
   external?: bool;
 };

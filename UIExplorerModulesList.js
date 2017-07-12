@@ -117,7 +117,7 @@ class UIExplorerModulesList extends React.Component {
       return null;
     }
     return this._renderRow(
-      'T5P HRMS',
+      'Beeper App',
       'Now you can',
       'home_key',
       () => {
@@ -267,39 +267,26 @@ class UIExplorerModulesList extends React.Component {
     
     if( token !== undefined && token.length > 0){
       console.log('provide token in getMenus' + token);
-
-
-      // We can hardcode modules list for a given user or retrieve list dynamically from API:
-      var menus = [
-        {menucode:"TOP", menuopt:21, name:"MAIN MENU", submenu:"MAIN", menulevel: 0, menuorder: 0, urltarget: "main"},
-        {menucode:"MAIN", menuopt:2, name:"MAP", submenu:3, menulevel: 1, menuorder: 1, urltarget: "payrollposting"},
-        {menucode:"MAIN", menuopt:3, name:"ADMIN", submenu:4, menulevel: 1, menuorder: 2, urltarget: "ImageExample"},
-      ];
-
-
-      this.setPageGetResult(menus);      
-
-      
-      // var bearer = 'Bearer ' + token;
-      // var settings = {
-      //   method: "GET",
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'application/json',
-      //     'authorization': bearer,
-      //   },      
-      // };      
-      // fetch("http://10.10.246.196:3000/api/sysmenu", settings)
-      //   .then((response) => response.json())
-      //   .then((responseData) => {
-      //       this.setPageGetResult(responseData);
-      //       console.log(responseData);
-      //     })
-      //   .catch((error) => {
-      //     this._showAlert('Download', 'Download menus failed with error: ' + error.message);
-      //     this.state.isLoading = false;
-      //     //this.state.resultsData this.setPageGetResult([]); //this.getDataSource([])
-      //   })
+      var bearer = 'Bearer ' + token;
+      var settings = {
+        method: "GET",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'authorization': bearer,
+        },      
+      };      
+      fetch("http://192.168.123.33:3000/api/sysmenu", settings)
+        .then((response) => response.json())
+        .then((responseData) => {
+            this.setPageGetResult(responseData);
+            console.log(responseData);
+          })
+        .catch((error) => {
+          this._showAlert('Download', 'Download menus failed with error: ' + error.message);
+          this.state.isLoading = false;
+          //this.state.resultsData this.setPageGetResult([]); //this.getDataSource([])
+        })
     }
   }
 

@@ -15,10 +15,6 @@ const ComponentExamples: Array<UIExplorerModule> = [
     module: require('./NewEmployeeDetail'),
   },
   {
-    key: 'ImageExample',
-    module: require('./ImageExample'),
-  },
-  {
     key: 'ListViewExample',
     module: require('./ListViewExample'),
   },
@@ -70,10 +66,6 @@ const ComponentExamples: Array<UIExplorerModule> = [
   {
     key: 'payrollposting',
     module: require('./SQLReportsListView'),
-  },
-  {
-    key: 'ToolbarAndroidExample',
-    module: require('./ToolbarAndroidExample'),
   },
   {
     key: 'TouchableExample',

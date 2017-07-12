@@ -146,36 +146,29 @@ class SQLReportsListView extends Component {
     }
     this.state.isLoading = true;
 
-    this.setReports([{name: 'Payroll Report',
-      url: 'http://192.168.123.145/ReportServer_SQLSERVER2016/logon.aspx?ReturnUrl=http://192.168.123.145/ReportServer_SQLSERVER2016/Pages/ReportViewer.aspx?%2fReports%2fPayslips%2fpayslip02&rs:Command=Render'},
-      {name: 'Another Payroll Report',
-      url: 'http://192.168.123.145/ReportServer_SQLSERVER2016/logon.aspx?ReturnUrl=http://192.168.123.145/ReportServer_SQLSERVER2016/Pages/ReportViewer.aspx?%2fReports%2fPayslips%2fpayslip01&rs:Command=Render'}
+    var settings = {
+      method: "GET",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJuYWNobyIsImV4cCI6MTQ3NTk5ODQ0NCwiaWF0IjoxNDc1OTEyMDQ0fQ.',
+      },
+    };      
+    fetch("http://192.168.123.33:3000/api/empnew", settings)
+      .then((response) => response.json())
+      .then((responseData) => {
+          this.setReports([{name: 'Payroll Report',
+            url: 'http://192.168.123.145/ReportServer_SQLSERVER2016/logon.aspx?ReturnUrl=http://192.168.123.145/ReportServer_SQLSERVER2016/Pages/ReportViewer.aspx?%2fReports%2fPayslips%2fpayslip02&rs:Command=Render'},
+            {name: 'Another Payroll Report',
+            url: 'http://192.168.123.145/ReportServer_SQLSERVER2016/logon.aspx?ReturnUrl=http://192.168.123.145/ReportServer_SQLSERVER2016/Pages/ReportViewer.aspx?%2fReports%2fPayslips%2fpayslip01&rs:Command=Render'}
 
-      ]);
-
-    // var settings = {
-    //   method: "GET",
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //     'authorization': 'Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJuYWNobyIsImV4cCI6MTQ3NTk5ODQ0NCwiaWF0IjoxNDc1OTEyMDQ0fQ.',
-    //   },
-    // };      
-    // fetch("http://192.168.123.33:3000/api/empnew", settings)
-    //   .then((response) => response.json())
-    //   .then((responseData) => {
-    //       this.setReports([{name: 'Payroll Report',
-    //         url: 'http://192.168.123.145/ReportServer_SQLSERVER2016/logon.aspx?ReturnUrl=http://192.168.123.145/ReportServer_SQLSERVER2016/Pages/ReportViewer.aspx?%2fReports%2fPayslips%2fpayslip02&rs:Command=Render'},
-    //         {name: 'Another Payroll Report',
-    //         url: 'http://192.168.123.145/ReportServer_SQLSERVER2016/logon.aspx?ReturnUrl=http://192.168.123.145/ReportServer_SQLSERVER2016/Pages/ReportViewer.aspx?%2fReports%2fPayslips%2fpayslip01&rs:Command=Render'}
-
-    //         ]);
-    //       console.log('On Get Page ');
-    //     })
-    //   .catch((error) => {
-    //     this._showAlert('Download', 'Download New Employees failed with error: ' + error.message);
-    //     this.state.isLoading = false;
-    //   });
+            ]);
+          console.log('On Get Page ');
+        })
+      .catch((error) => {
+        this._showAlert('Download', 'Download New Employees failed with error: ' + error.message);
+        this.state.isLoading = false;
+      });
 
   };
 

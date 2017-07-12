@@ -182,7 +182,7 @@ class BeeperApp extends React.Component {
       },
       body: body,
     };      
-    fetch("http://10.10.246.131:3000/token", settings)
+    fetch("http://192.168.123.33:3000/token", settings)
       .then((response) => response.json())
       .then((responseData) => {
         this.setLoginUser(responseData);
@@ -217,7 +217,7 @@ class BeeperApp extends React.Component {
     
     if (stack && stack.routes[index]) {
       const {key, passProps} = stack.routes[index];
-      const theModule = UIExplorerList.Modules[key];
+      const TheModule = UIExplorerList.Modules[key];
       return (
         <View style={styles.container}>
           <ToolbarAndroid
@@ -228,7 +228,7 @@ class BeeperApp extends React.Component {
             title={title}
           />
           <UIExplorerModuleContainer
-            module={theModule}
+            module={TheModule}
             passProps = {passProps}
             ref={(themodule) => { this._moduleRef = themodule; }}
           />
